@@ -1,7 +1,5 @@
 package com.guru.qa;
 
-import java.util.Date;
-
 public class TestData {
     static String
         firstName = "John",

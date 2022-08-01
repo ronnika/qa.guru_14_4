@@ -1,8 +1,5 @@
 package com.guru.qa;
 
-import com.codeborne.selenide.Condition;
-import com.codeborne.selenide.SelenideElement;
-
 import java.io.File;
 
 import static com.codeborne.selenide.Condition.text;
