@@ -14,7 +14,6 @@ public class TestData {
         year = "1999",
         picture = "/home/ronnie/Downloads/flowerdog.jpg",
         pictureName = "flowerdog.jpg",
-        hobby = "Music",
         currentAddress = "boring st 1",
         state = "NCR",
         city = "Agra";
