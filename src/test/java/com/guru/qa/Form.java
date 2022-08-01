@@ -38,7 +38,7 @@ public class Form {
         fillDate(TestData.day, TestData.month, TestData.year);
         fillSubjectsAuto(TestData.subjects);
         fillHobbiesCheckBox(TestData.hobbies);
-        $("#uploadPicture").uploadFile(new File(TestData.picture));
+        $("#uploadPicture").uploadFile(new File("src/test/resources/" + TestData.pictureName));
         $("#currentAddress").setValue(TestData.currentAddress);
         $("#state input").setValue(TestData.state).pressEnter();
         $("#city input").setValue(TestData.city).pressEnter();
