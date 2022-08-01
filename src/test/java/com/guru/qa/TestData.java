@@ -13,8 +13,12 @@ public class TestData {
         month = "July",
         year = "1999",
         picture = "/home/ronnie/Downloads/flowerdog.jpg",
+        pictureName = "flowerdog.jpg",
         hobby = "Music",
         currentAddress = "boring st 1",
         state = "NCR",
         city = "Agra";
+    static String[]
+        hobbies = {"Music", "Reading"},
+        subjects = {"English", "Arts"};
 }
