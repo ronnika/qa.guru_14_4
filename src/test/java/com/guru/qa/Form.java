@@ -42,6 +42,7 @@ public class Form {
         $("#currentAddress").setValue(TestData.currentAddress);
         $("#state input").setValue(TestData.state).pressEnter();
         $("#city input").setValue(TestData.city).pressEnter();
+
         $("#submit").click();
     }
 
