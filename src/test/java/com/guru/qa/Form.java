@@ -1,6 +1,7 @@
 package com.guru.qa;
 
 import com.codeborne.selenide.Condition;
+import com.codeborne.selenide.SelenideElement;
 
 import java.io.File;
 
@@ -8,22 +9,34 @@ import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
 
 public class Form {
+    static void fillDate(String day, String month, String year) {
+        $("#dateOfBirthInput").click();
+        $(".react-datepicker__year-select").selectOptionByValue(year);
+        $(".react-datepicker__month-select").selectOptionContainingText(month);
+        $(".react-datepicker__day--0" + day).click();
+    }
+
+    static void fillSubjectsAuto(String[] subjects) {
+        for (String subject: subjects) {
+            $("#subjectsInput").setValue(subject).pressEnter();
+        }
+    }
+
+    static void fillHobbiesCheckBox(String[] hobbies) {
+        for (String hobby: hobbies){
+            $(byText(hobby)).click();
+        }
+    }
+
     public static void fillForm () {
         $("#firstName").setValue(TestData.firstName);
         $("#lastName").setValue(TestData.lastName);
         $("#userEmail").setValue(TestData.userEmail);
         $("#userNumber").setValue(TestData.userNumber);
         $(byText(TestData.gender)).click();
-        $("#dateOfBirthInput").click();
-        $(".react-datepicker__year-select").selectOptionByValue(TestData.year);
-        $(".react-datepicker__month-select").selectOptionContainingText(TestData.month);
-        $(".react-datepicker__day--0" + TestData.day).click();
-        for (int i = 0; i < TestData.subjects.length; i++) {
-            $("#subjectsInput").setValue(TestData.subjects[i]).pressEnter();
-        }
-        for (int i = 0; i < TestData.hobbies.length; i++) {
-            $(byText(TestData.hobbies[i])).click();
-        }
+        fillDate(TestData.day, TestData.month, TestData.year);
+        fillSubjectsAuto(TestData.subjects);
+        fillHobbiesCheckBox(TestData.hobbies);
         $("#uploadPicture").uploadFile(new File(TestData.picture));
         $("#currentAddress").setValue(TestData.currentAddress);
         $("#state input").setValue(TestData.state).pressEnter();
@@ -38,17 +51,11 @@ public class Form {
         $("tbody").shouldHave(Condition.text(TestData.userNumber));
         $("tbody").shouldHave(Condition.text(TestData.day +
                                                                 " " + TestData.month +
-                                                                ", " + TestData.year));
+                                                                "," + TestData.year));
         $("tbody").shouldHave(Condition.text(TestData.currentAddress));
         $("tbody").shouldHave(Condition.text(String.join(",", TestData.hobbies)));
         $("tbody").shouldHave(Condition.text(String.join(",", TestData.subjects)));
         $("tbody").shouldHave(Condition.text(TestData.pictureName));
         $("tbody").shouldHave(Condition.text(TestData.state + " " + TestData.city));
-
-
-
-
-
-
     }
 }
