@@ -12,7 +12,7 @@ public class TestData {
         day = "11",
         month = "July",
         year = "1999",
-        picture = "/home/ronnie/Downloads/flowerdog.jpg",
+        picture = "src/test/resources/flowerdog.jpg",
         pictureName = "flowerdog.jpg",
         currentAddress = "boring st 1",
         state = "NCR",
