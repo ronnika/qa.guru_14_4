@@ -5,6 +5,7 @@ import com.codeborne.selenide.SelenideElement;
 
 import java.io.File;
 
+import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
 
@@ -45,17 +46,17 @@ public class Form {
     }
 
     public static void checkResults() {
-        $("tbody").shouldHave(Condition.text(TestData.firstName + " " + TestData.lastName));
-        $("tbody").shouldHave(Condition.text(TestData.userEmail));
-        $("tbody").shouldHave(Condition.text(TestData.gender));
-        $("tbody").shouldHave(Condition.text(TestData.userNumber));
-        $("tbody").shouldHave(Condition.text(TestData.day +
-                                                                " " + TestData.month +
-                                                                "," + TestData.year));
-        $("tbody").shouldHave(Condition.text(TestData.currentAddress));
-        $("tbody").shouldHave(Condition.text(String.join(",", TestData.hobbies)));
-        $("tbody").shouldHave(Condition.text(String.join(",", TestData.subjects)));
-        $("tbody").shouldHave(Condition.text(TestData.pictureName));
-        $("tbody").shouldHave(Condition.text(TestData.state + " " + TestData.city));
+        $(".modal-header").shouldHave(text("Thanks for submitting the form"));
+        $(".table-responsive").shouldHave(
+                text(TestData.firstName + " " + TestData.lastName),
+                text(TestData.userEmail),
+                text(TestData.gender),
+                text(TestData.userNumber),
+                text(TestData.day + " " + TestData.month + ", " + TestData.year),
+                text(TestData.currentAddress),
+                text(String.join(", ", TestData.hobbies)),
+                text(String.join(", ", TestData.subjects)),
+                text(TestData.pictureName),
+                text(TestData.state + " " + TestData.city));
     }
 }
