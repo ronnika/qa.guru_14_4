@@ -13,7 +13,7 @@ public class TestData {
         pictureName = "flowerdog.jpg",
         currentAddress = "boring st 1",
         state = "NCR",
-        city = "Agra";
+        city = "Noida";
     static String[]
         hobbies = {"Music", "Reading"},
         subjects = {"English", "Arts"};
