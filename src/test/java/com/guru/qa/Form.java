@@ -50,7 +50,7 @@ public class Form {
                 text(TestData.userEmail),
                 text(TestData.gender),
                 text(TestData.userNumber),
-                text(TestData.day + " " + TestData.month + ", " + TestData.year),
+                text(TestData.day + " " + TestData.month + "," + TestData.year),
                 text(TestData.currentAddress),
                 text(String.join(", ", TestData.hobbies)),
                 text(String.join(", ", TestData.subjects)),
