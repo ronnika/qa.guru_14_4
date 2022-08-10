@@ -24,11 +24,13 @@ public class RegistrationFormPage {
             cityInput = $("#city input"),
             submitInput = $("#submit"),
             formWrapper = $(".practice-form-wrapper");
+
     private DatePickerComponent datePickerComponent = new DatePickerComponent();
     private ResultsModalComponent resultsModalComponent = new ResultsModalComponent();
     private AutoCompleteComponent autoCompleteComponent = new AutoCompleteComponent(subjectsInput);
     private SelectComponent stateSelectComponent = new SelectComponent(stateInput);
     private SelectComponent citySelectComponent = new SelectComponent(cityInput);
+
     private final static String TITLE_TEXT = "Student Registration Form";
 
     public RegistrationFormPage setFirstName(String firstName) {
@@ -105,7 +107,6 @@ public class RegistrationFormPage {
         return this;
     }
 
-
     public RegistrationFormPage fillForm (TestData data) {
         this.setFirstName(data.firstName)
                             .setLastName(data.lastName)
@@ -132,7 +133,6 @@ public class RegistrationFormPage {
         resultsModalComponent.checkData(key, value);
         return this;
     }
-
 
     public RegistrationFormPage checkResults(TestData data) {
         this.checkResultsTableVisible()
