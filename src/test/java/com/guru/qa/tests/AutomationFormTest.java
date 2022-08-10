@@ -1,13 +1,15 @@
-package com.guru.qa;
+package com.guru.qa.tests;
 
 import com.codeborne.selenide.Configuration;
 
+import com.guru.qa.pages.RegistrationFormPage;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
-import static com.codeborne.selenide.Selenide.open;
 
 
 public class AutomationFormTest {
+    private RegistrationFormPage registrationFormPage = new RegistrationFormPage();
+    private TestData testData = new TestData();
 
     @BeforeAll
     static void configure() {
@@ -17,8 +19,8 @@ public class AutomationFormTest {
 
     @Test
     void fillFormTest() {
-        open("/automation-practice-form");
-        Form.fillForm();
-        Form.checkResults();
+        registrationFormPage.openForm()
+                            .fillForm(testData)
+                            .checkResults(testData);
     }
 }
