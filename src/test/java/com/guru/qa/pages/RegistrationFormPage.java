@@ -108,18 +108,18 @@ public class RegistrationFormPage {
     }
 
     public RegistrationFormPage fillForm (TestData data) {
-        this.setFirstName(data.firstName)
-                            .setLastName(data.lastName)
-                            .setEmail(data.userEmail)
-                            .setNumber(data.userNumber)
-                            .setGender(data.gender)
-                            .setDate(data.day, data.month, data.year)
-                            .setSubjects(data.subjects)
-                            .setHobbies(data.hobbies)
-                            .setImage("img/" + data.pictureName)
-                            .setAddress(data.currentAddress)
-                            .setState(data.state)
-                            .setCity(data.city)
+        this.setFirstName(data.getFirstName())
+                            .setLastName(data.getLastName())
+                            .setEmail(data.getUserEmail())
+                            .setNumber(data.getUserNumber())
+                            .setGender(data.getGender())
+                            .setDate(data.getDay(), data.getMonth(), data.getYear())
+                            .setSubjects(data.getSubjects())
+                            .setHobbies(data.getHobbies())
+                            .setImage("img/" + data.getPictureName())
+                            .setAddress(data.getCurrentAddress())
+                            .setState(data.getState())
+                            .setCity(data.getCity())
                             .clickSubmit();
         return this;
     }
@@ -136,16 +136,16 @@ public class RegistrationFormPage {
 
     public RegistrationFormPage checkResults(TestData data) {
         this.checkResultsTableVisible()
-                        .checkData("Student Name", data.firstName + " " + data.lastName)
-                        .checkData("Student Email", data.userEmail)
-                        .checkData("Gender", data.gender)
-                        .checkData("Mobile", data.userNumber)
-                        .checkData("Date of Birth", data.day + " " + data.month + "," + data.year)
-                        .checkData("Subjects", String.join(", ", data.subjects))
-                        .checkData("Hobbies", String.join(", ", data.hobbies))
-                        .checkData("Picture", data.pictureName)
-                        .checkData("Address", data.currentAddress)
-                        .checkData("State and City",data.state + " " + data.city);
+                .checkData("Student Name", data.getFirstName() + " " + data.getLastName())
+                .checkData("Student Email", data.getUserEmail())
+                .checkData("Gender", data.getGender())
+                .checkData("Mobile", data.getUserNumber())
+                .checkData("Date of Birth", data.getDay() + " " + data.getMonth() + "," + data.getYear())
+                .checkData("Subjects", String.join(", ", data.getSubjects()))
+                .checkData("Hobbies", String.join(", ", data.getHobbies()))
+                .checkData("Picture", data.getPictureName())
+                .checkData("Address", data.getCurrentAddress())
+                .checkData("State and City", data.getState() + " " + data.getCity());
       return this;
     }
 }
