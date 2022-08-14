@@ -6,23 +6,25 @@ import com.guru.qa.utils.RandomData;
 import java.util.Date;
 
 public class TestData {
-    RandomData randomData = new RandomData();
+    RandomData data = new RandomData();
+
     private String
-        firstName = randomData.getFirstName(),
-        lastName = randomData.getLastName(),
-        userEmail = randomData.getEmail(),
-        userNumber = randomData.getNumber(),
-        gender = randomData.getGender(),
-        day = randomData.getDay(),
-        month = randomData.getMonth(),
-        year = randomData.getYear(),
-        pictureName = randomData.getPictureName(),
-        currentAddress = randomData.getCurrentAddress(),
-        state = randomData.getState(),
-        city = randomData.getCity();
+        firstName = data.getFirstName(),
+        lastName = data.getLastName(),
+        userEmail = data.getEmail(),
+        userNumber = data.getNumber(),
+        gender = data.getGender(),
+        day = data.getDay(),
+        month = data.getMonth(),
+        year = data.getYear(),
+        pictureName = data.getPictureName(),
+        currentAddress = data.getCurrentAddress(),
+        state = data.getState(),
+        city = data.getCity();
+
     private String[]
-        hobbies = randomData.getHobbies(), 
-        subjects = randomData.getSubjects();
+        hobbies = data.getHobbies(),
+        subjects = data.getSubjects();
 
     public TestData() {}
 

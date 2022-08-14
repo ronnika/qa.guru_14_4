@@ -12,17 +12,19 @@ public class RandomData {
             hobbies = {"Sports", "Reading", "Music"},
             state = {"NCR"},
             cities = {"Delhi", "Gurgaon", "Nioda"};
+
+    private String pictureName = "flowerdog.jpg";
+
     private String
             day,
             month,
-            year,
-            pictureName = "flowerdog.jpg";
-    private Faker faker;
-    private Random rand;
+            year;
+
+    private Faker faker = new Faker();
+
+    private Random rand = new Random();
 
     public RandomData() {
-        this.faker = new Faker();
-        this.rand = new Random();
         Date date = faker.date().birthday();
         SimpleDateFormat sdf = new SimpleDateFormat("dd/MMMM/yyyy", Locale.ENGLISH);
         String[] dateArray = sdf.format(date).split("/");
