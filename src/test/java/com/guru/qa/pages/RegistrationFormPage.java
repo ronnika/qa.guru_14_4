@@ -5,7 +5,7 @@ import com.guru.qa.pages.components.AutoCompleteComponent;
 import com.guru.qa.pages.components.DatePickerComponent;
 import com.guru.qa.pages.components.ResultsModalComponent;
 import com.guru.qa.pages.components.SelectComponent;
-import com.guru.qa.tests.TestData;
+import com.guru.qa.data.TestData;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;

@@ -1,4 +1,4 @@
-package com.guru.qa.tests;
+package com.guru.qa.data;
 
 public class TestData {
     private String
