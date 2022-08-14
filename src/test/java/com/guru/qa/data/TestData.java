@@ -1,22 +1,28 @@
 package com.guru.qa.data;
 
+import com.github.javafaker.Faker;
+import com.guru.qa.utils.RandomData;
+
+import java.util.Date;
+
 public class TestData {
+    RandomData randomData = new RandomData();
     private String
-        firstName = "John",
-        lastName = "Smith",
-        userEmail = "john.smith@email.com",
-        userNumber = "1234567890",
-        gender = "Male",
-        day = "11",
-        month = "July",
-        year = "1999",
-        pictureName = "flowerdog.jpg",
-        currentAddress = "boring st 1",
-        state = "NCR",
-        city = "Noida";
+        firstName = randomData.getFirstName(),
+        lastName = randomData.getLastName(),
+        userEmail = randomData.getEmail(),
+        userNumber = randomData.getNumber(),
+        gender = randomData.getGender(),
+        day = randomData.getDay(),
+        month = randomData.getMonth(),
+        year = randomData.getYear(),
+        pictureName = randomData.getPictureName(),
+        currentAddress = randomData.getCurrentAddress(),
+        state = randomData.getState(),
+        city = randomData.getCity();
     private String[]
-        hobbies = {"Music", "Reading"},
-        subjects = {"English", "Arts"};
+        hobbies = randomData.getHobbies(), 
+        subjects = randomData.getSubjects();
 
     public TestData() {}
 
