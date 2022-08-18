@@ -11,7 +11,7 @@ public class AutomationFormTest extends BaseTest {
     private TestData testData = new TestData();
 
     @Test
-    void fillFormTest(TestData testData) {
+    void fillFormTest() {
         var registrationFormPage = new RegistrationFormPage()
                             .openForm()
                             .fillForm(testData)
