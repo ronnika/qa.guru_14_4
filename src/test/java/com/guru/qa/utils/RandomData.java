@@ -6,15 +6,6 @@ import java.text.SimpleDateFormat;
 import java.util.*;
 
 public class RandomData {
-    private String[]
-            gender = {"Male", "Female", "Other"},
-            subjects = {"Arts", "English", "Maths", "Economics"},
-            hobbies = {"Sports", "Reading", "Music"},
-            state = {"NCR"},
-            cities = {"Delhi", "Gurgaon", "Nioda"};
-
-    private String pictureName = "flowerdog.jpg";
-
     private String
             day,
             month,
@@ -50,6 +41,8 @@ public class RandomData {
     }
 
     public String getGender() {
+        // TBD
+        String[] gender = {"Male", "Female", "Other"};
         return gender[rand.nextInt(gender.length)];
     }
 
@@ -67,7 +60,7 @@ public class RandomData {
 
     public String getPictureName() {
         // TBD
-        return pictureName;
+        return "flowerdog.jpg";
     }
 
     public String getCurrentAddress() {
@@ -76,21 +69,24 @@ public class RandomData {
 
     public String getState() {
         // TBD
-        return state[0];
+        return "NCR";
     }
 
     public String getCity() {
         // TBD
+        String[] cities = {"Delhi", "Gurgaon", "Nioda"};
         return cities[rand.nextInt(cities.length - 1)];
     }
 
     public String[] getHobbies() {
         // TBD
+        String[] hobbies = {"Sports", "Reading", "Music"};
         return hobbies;
     }
 
     public String[] getSubjects() {
         // TBD
+        String[] subjects = {"Arts", "English", "Maths", "Economics"};
         return subjects;
     }
 
