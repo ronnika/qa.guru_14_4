@@ -6,12 +6,14 @@ import org.junit.jupiter.api.Test;
 
 
 public class AutomationFormTest extends BaseTest {
-    private RegistrationFormPage registrationFormPage = new RegistrationFormPage();
+
+
     private TestData testData = new TestData();
 
     @Test
-    void fillFormTest() {
-        registrationFormPage.openForm()
+    void fillFormTest(TestData testData) {
+        var registrationFormPage = new RegistrationFormPage()
+                            .openForm()
                             .fillForm(testData)
                             .checkResults(testData);
     }
