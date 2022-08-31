@@ -26,8 +26,8 @@ allure {
 dependencies {
     testImplementation (
         'org.junit.jupiter:junit-jupiter:5.9.0',
-        'com.codeborne:selenide:6.6.6',
-        'org.slf4j:slf4j-simple:1.7.36',
+        'com.codeborne:selenide:6.7.3',
+        'org.slf4j:slf4j-simple:2.0.0',
         'com.github.javafaker:javafaker:1.0.2',
         "io.qameta.allure:allure-selenide:$allureVersion"
     )
@@ -36,7 +36,7 @@ dependencies {
 
 test {
     useJUnitPlatform()
-    
+
     testLogging {
         lifecycle {
             events "started", "skipped", "failed", "standard_error", "standard_out"

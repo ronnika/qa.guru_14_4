@@ -6,6 +6,8 @@ import com.guru.qa.pages.components.DatePickerComponent;
 import com.guru.qa.pages.components.ResultsModalComponent;
 import com.guru.qa.pages.components.SelectComponent;
 import com.guru.qa.data.TestData;
+import io.qameta.allure.Step;
+import org.junit.jupiter.api.condition.DisabledIfSystemProperties;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
@@ -107,7 +109,7 @@ public class RegistrationFormPage {
         return this;
     }
 
-    public RegistrationFormPage fillForm (TestData data) {
+     public RegistrationFormPage fillForm (TestData data) {
         this.setFirstName(data.getFirstName())
                             .setLastName(data.getLastName())
                             .setEmail(data.getUserEmail())
@@ -134,7 +136,7 @@ public class RegistrationFormPage {
         return this;
     }
 
-    public RegistrationFormPage checkResults(TestData data) {
+     public RegistrationFormPage checkResults(TestData data) {
         this.checkResultsTableVisible()
                 .checkData("Student Name", data.getFirstName() + " " + data.getLastName())
                 .checkData("Student Email", data.getUserEmail())
