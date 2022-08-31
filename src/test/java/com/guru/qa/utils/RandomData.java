@@ -5,15 +5,15 @@ import com.github.javafaker.Faker;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
-public class RandomData {
-    private String
+public  class RandomData {
+    private static String
             day,
             month,
             year;
 
-    private Faker faker = new Faker();
+    private static Faker faker = new Faker();
 
-    private Random rand = new Random();
+    private static Random rand = new Random();
 
     public RandomData() {
         Date date = faker.date().birthday();
@@ -24,67 +24,67 @@ public class RandomData {
         this.year = dateArray[2];
     }
 
-    public String getFirstName() {
+    public static String getFirstName() {
         return faker.name().firstName();
     }
 
-    public String getLastName() {
+    public static String getLastName() {
         return faker.name().lastName();
     }
 
-    public String getEmail() {
+    public static String getEmail() {
         return faker.internet().emailAddress();
     }
 
-    public String getNumber() {
+    public static String getNumber() {
         return faker.numerify("##########");
     }
 
-    public String getGender() {
+    public static String getGender() {
         // TBD
         String[] gender = {"Male", "Female", "Other"};
         return gender[rand.nextInt(gender.length)];
     }
 
-    public String getDay() {
+    public static String getDay() {
         return day;
     }
 
-    public String getMonth() {
+    public static String getMonth() {
         return month;
     }
 
-    public String getYear() {
+    public static String getYear() {
         return year;
     }
 
-    public String getPictureName() {
+    public static String getPictureName() {
         // TBD
         return "flowerdog.jpg";
     }
 
-    public String getCurrentAddress() {
+    public static String getCurrentAddress() {
         return faker.address().fullAddress();
     }
 
-    public String getState() {
+    public static String getState() {
         // TBD
         return "NCR";
     }
 
-    public String getCity() {
+    public static String getCity() {
         // TBD
         String[] cities = {"Delhi", "Gurgaon", "Nioda"};
         return cities[rand.nextInt(cities.length - 1)];
     }
 
-    public String[] getHobbies() {
+    public static String[] getHobbies() {
         // TBD
         String[] hobbies = {"Sports", "Reading", "Music"};
         return hobbies;
     }
 
-    public String[] getSubjects() {
+    public static String[] getSubjects() {
         // TBD
         String[] subjects = {"Arts", "English", "Maths", "Economics"};
         return subjects;
