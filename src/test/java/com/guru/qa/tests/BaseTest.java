@@ -22,9 +22,9 @@ public class BaseTest {
         capabilities.setCapability("enableVNC", true);
         capabilities.setCapability("enableVideo", true);
 
+//        Configuration.browser = browserName;
+//        Configuration.browserVersion = browserVersion;
         Configuration.browserCapabilities = capabilities;
-        Configuration.browser = browserName;
-        Configuration.browserVersion = browserVersion;
         Configuration.baseUrl = "https://demoqa.com";
         Configuration.browserSize = browserSize;
         if (remote) {
