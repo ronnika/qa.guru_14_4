@@ -13,19 +13,21 @@ public class BaseTest {
     @BeforeAll
     static void configure() {
         SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
-        String browserName = System.getProperty("browser_name");
-        String browserVersion = System.getProperty("browser_version");
-        String browserSize = System.getProperty("browser_size");
-        boolean remote = Boolean.parseBoolean(System.getProperty("remote"));
+        String browserName = System.getProperty("browser_name", "chrome");
+        String browserVersion = System.getProperty("browser_version", "101");
+        String browserSize = System.getProperty("browser_size", "1980x1260");
+        boolean remote = Boolean.parseBoolean(System.getProperty("remote", "true"));
 
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability("enableVNC", true);
         capabilities.setCapability("enableVideo", true);
 
         Configuration.browserCapabilities = capabilities;
+        Configuration.browser = browserName;
+        Configuration.browserVersion = browserVersion;
         Configuration.baseUrl = "https://demoqa.com";
         Configuration.browserSize = browserSize;
-        if (remote == true) {
+        if (remote) {
             Configuration.remote = "https://user1:1234@selenoid.autotests.cloud/wd/hub";
         }
 
