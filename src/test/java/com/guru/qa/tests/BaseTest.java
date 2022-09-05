@@ -14,8 +14,8 @@ public class BaseTest {
     static void configure() {
         SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
         String browserName = System.getProperty("browser_name", "chrome");
-        String browserVersion = System.getProperty("browser_version", "101");
-        String browserSize = System.getProperty("browser_size", "1980x1260");
+        String browserVersion = System.getProperty("browser_version", "100.0");
+        String browserSize = System.getProperty("browser_size", "1920x1080");
         boolean remote = Boolean.parseBoolean(System.getProperty("remote", "true"));
 
         DesiredCapabilities capabilities = new DesiredCapabilities();
@@ -27,6 +27,7 @@ public class BaseTest {
         Configuration.browserSize = browserSize;
         Configuration.browser = browserName;
         Configuration.browserVersion = browserVersion;
+
         if (remote) {
             Configuration.remote = "https://user1:1234@selenoid.autotests.cloud/wd/hub";
         }
