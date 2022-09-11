@@ -10,13 +10,14 @@ import org.junit.jupiter.api.BeforeAll;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
 public class BaseTest {
+    static String browserName = System.getProperty("browser_name", "chrome");
+    static String browserVersion = System.getProperty("browser_version", "100.0");
+    static String browserSize = System.getProperty("browser_size", "1920x1080");
+    static String remote = System.getProperty("remote");
+
     @BeforeAll
     static void configure() {
         SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
-        String browserName = System.getProperty("browser_name", "chrome");
-        String browserVersion = System.getProperty("browser_version", "100.0");
-        String browserSize = System.getProperty("browser_size", "1920x1080");
-        boolean remote = Boolean.parseBoolean(System.getProperty("remote", "true"));
 
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability("enableVNC", true);
@@ -27,9 +28,9 @@ public class BaseTest {
         Configuration.browser = browserName;
         Configuration.browserVersion = browserVersion;
 
-        if (remote) {
+        if (remote != null) {
             Configuration.browserCapabilities = capabilities;
-            Configuration.remote = "https://user1:1234@selenoid.autotests.cloud/wd/hub";
+            Configuration.remote = "https://" + "user1:1234@" + remote;
         }
 
     }
@@ -39,7 +40,9 @@ public class BaseTest {
         Attach.screenshotAs("Screenshot");
         Attach.pageSource();
         Attach.browserConsoleLogs();
-        Attach.addVideo();
+        if (remote != null) {
+            Attach.addVideo();
+        }
     }
 
 }
