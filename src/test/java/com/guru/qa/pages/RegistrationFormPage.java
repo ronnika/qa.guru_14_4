@@ -1,42 +1,34 @@
 package com.guru.qa.pages;
 
 import com.codeborne.selenide.SelenideElement;
-import com.guru.qa.elements.TextInput;
+import com.guru.qa.data.TestData;
+import com.guru.qa.elements.*;
 import com.guru.qa.pages.components.AutoCompleteComponent;
 import com.guru.qa.pages.components.DatePickerComponent;
 import com.guru.qa.pages.components.ResultsModalComponent;
 import com.guru.qa.pages.components.SelectComponent;
-import com.guru.qa.data.TestData;
-import io.qameta.allure.Step;
-import org.junit.jupiter.api.condition.DisabledIfSystemProperties;
-
-import java.awt.*;
 
 import static com.codeborne.selenide.Condition.text;
-import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 
 public class RegistrationFormPage {
-    private SelenideElement
-
-            uploadImageInput = $("#uploadPicture"),
-            currentAddressInput = $("#currentAddress"),
-            submitInput = $("#submit"),
-            formWrapper = $(".practice-form-wrapper");
+    private SelenideElement  formWrapper = $(".practice-form-wrapper");
 
     private TextInput firstNameInput = new TextInput("First name input", $("#firstName"));
     private TextInput lastNameInput = new TextInput("Last name input", $("#lastName"));
     private TextInput emailInput = new TextInput("Email input", $("#userEmail"));
     private TextInput numberInput = new TextInput("User number input", $("#userNumber"));
-
+    private TextInput currentAddressInput = new TextInput("Current address input", $("#currentAddress"));
+    private RadioButton genderRadioInput = new RadioButton("Gender");
+    private FileUploadInput uploadImageInput = new FileUploadInput("Image upload", $("#uploadPicture"));
     private DatePickerComponent datePickerComponent = new DatePickerComponent();
     private ResultsModalComponent resultsModalComponent = new ResultsModalComponent();
+
+    private CheckBoxInput hobbiesCheckBox = new CheckBoxInput("Hobbies", $("#userform"));
     private AutoCompleteComponent autoCompleteComponent = new AutoCompleteComponent($("#subjectsInput"));
     private SelectComponent stateSelectComponent = new SelectComponent($("#state input"));
     private SelectComponent citySelectComponent = new SelectComponent($("#city input"));
-
-
-
+    private Button submitButton = new Button("Submit", $("#submit"));
     private final static String TITLE_TEXT = "Student Registration Form";
 
     public RegistrationFormPage setFirstName(String firstName) {
@@ -60,7 +52,7 @@ public class RegistrationFormPage {
     }
 
     public RegistrationFormPage setGender(String gender) {
-        $(byText(gender)).click();
+        genderRadioInput.setValue(gender);
         return this;
     }
 
@@ -75,14 +67,12 @@ public class RegistrationFormPage {
     }
 
     public RegistrationFormPage setHobbies(String[] hobbies) {
-        for (String hobby: hobbies){
-            $(byText(hobby)).click();
-        }
+        hobbiesCheckBox.checkBoxes(hobbies);
         return this;
     }
 
     public RegistrationFormPage setImage(String imagePath) {
-        uploadImageInput.uploadFromClasspath(imagePath);
+        uploadImageInput.uploadImage(imagePath);
         return this;
     }
 
@@ -102,7 +92,7 @@ public class RegistrationFormPage {
     }
 
     public RegistrationFormPage clickSubmit() {
-        submitInput.click();
+        submitButton.click();
         return this;
     }
 
