@@ -16,29 +16,42 @@ public class RegistrationFormPage {
 
     private TextInput firstNameInput =
             new TextInput("First name input", $("#firstName"));
+
     private TextInput lastNameInput =
             new TextInput("Last name input", $("#lastName"));
+
     private TextInput emailInput =
             new TextInput("Email input", $("#userEmail"));
+
     private TextInput numberInput =
             new TextInput("User number input", $("#userNumber"));
+
     private TextInput currentAddressInput =
             new TextInput("Current address input", $("#currentAddress"));
+
     private RadioButton genderRadioInput = new RadioButton("Gender", formWrapper);
+
     private FileUploadInput uploadImageInput =
             new FileUploadInput("Image upload", $("#uploadPicture"));
+
     private DatePickerComponent datePickerComponent =
             new DatePickerComponent("Date Picker", $("#dateOfBirthInput"));
+
     private ResultsModalComponent resultsModalComponent = new ResultsModalComponent();
 
     private CheckBoxInput hobbiesCheckBox = new CheckBoxInput("Hobbies", formWrapper);
+
     private AutoCompleteComponent autoCompleteComponent =
             new AutoCompleteComponent("Subjects", $("#subjectsInput"));
+
     private SelectComponent stateSelectComponent =
             new SelectComponent("State input", $("#state input"));
+
     private SelectComponent citySelectComponent =
             new SelectComponent("City input", $("#city input"));
+
     private Button submitButton = new Button("Submit", $("#submit"));
+
     private final static String TITLE_TEXT = "Student Registration Form";
 
     public RegistrationFormPage setFirstName(String firstName) {
