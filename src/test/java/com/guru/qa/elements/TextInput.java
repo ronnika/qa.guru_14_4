@@ -5,16 +5,16 @@ import io.qameta.allure.Step;
 
 public class TextInput {
     private final String name;
-    private final SelenideElement locator;
+    private final SelenideElement selector;
 
-    public TextInput(String name, SelenideElement locator) {
+    public TextInput(String name, SelenideElement selector) {
         this.name = name;
-        this.locator = locator;
+        this.selector = selector;
     }
 
     @Step("Input {this.name}")
     public void setValue(String val) {
-        locator.setValue(val);
+        selector.setValue(val);
     }
 
     public String getName() {

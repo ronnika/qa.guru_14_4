@@ -19,12 +19,12 @@ public class RegistrationFormPage {
     private TextInput emailInput = new TextInput("Email input", $("#userEmail"));
     private TextInput numberInput = new TextInput("User number input", $("#userNumber"));
     private TextInput currentAddressInput = new TextInput("Current address input", $("#currentAddress"));
-    private RadioButton genderRadioInput = new RadioButton("Gender");
+    private RadioButton genderRadioInput = new RadioButton("Gender", formWrapper);
     private FileUploadInput uploadImageInput = new FileUploadInput("Image upload", $("#uploadPicture"));
     private DatePickerComponent datePickerComponent = new DatePickerComponent();
     private ResultsModalComponent resultsModalComponent = new ResultsModalComponent();
 
-    private CheckBoxInput hobbiesCheckBox = new CheckBoxInput("Hobbies", $("#userform"));
+    private CheckBoxInput hobbiesCheckBox = new CheckBoxInput("Hobbies", formWrapper);
     private AutoCompleteComponent autoCompleteComponent = new AutoCompleteComponent($("#subjectsInput"));
     private SelectComponent stateSelectComponent = new SelectComponent($("#state input"));
     private SelectComponent citySelectComponent = new SelectComponent($("#city input"));
