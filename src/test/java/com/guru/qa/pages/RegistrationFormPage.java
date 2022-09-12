@@ -1,6 +1,7 @@
 package com.guru.qa.pages;
 
 import com.codeborne.selenide.SelenideElement;
+import com.guru.qa.elements.TextInput;
 import com.guru.qa.pages.components.AutoCompleteComponent;
 import com.guru.qa.pages.components.DatePickerComponent;
 import com.guru.qa.pages.components.ResultsModalComponent;
@@ -9,29 +10,32 @@ import com.guru.qa.data.TestData;
 import io.qameta.allure.Step;
 import org.junit.jupiter.api.condition.DisabledIfSystemProperties;
 
+import java.awt.*;
+
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 
 public class RegistrationFormPage {
     private SelenideElement
-            firstNameInput = $("#firstName"),
-            lastNameInput = $("#lastName"),
-            emailInput = $("#userEmail"),
-            numberInput = $("#userNumber"),
-            subjectsInput = $("#subjectsInput"),
+
             uploadImageInput = $("#uploadPicture"),
             currentAddressInput = $("#currentAddress"),
-            stateInput = $("#state input"),
-            cityInput = $("#city input"),
             submitInput = $("#submit"),
             formWrapper = $(".practice-form-wrapper");
 
+    private TextInput firstNameInput = new TextInput("First name input", $("#firstName"));
+    private TextInput lastNameInput = new TextInput("Last name input", $("#lastName"));
+    private TextInput emailInput = new TextInput("Email input", $("#userEmail"));
+    private TextInput numberInput = new TextInput("User number input", $("#userNumber"));
+
     private DatePickerComponent datePickerComponent = new DatePickerComponent();
     private ResultsModalComponent resultsModalComponent = new ResultsModalComponent();
-    private AutoCompleteComponent autoCompleteComponent = new AutoCompleteComponent(subjectsInput);
-    private SelectComponent stateSelectComponent = new SelectComponent(stateInput);
-    private SelectComponent citySelectComponent = new SelectComponent(cityInput);
+    private AutoCompleteComponent autoCompleteComponent = new AutoCompleteComponent($("#subjectsInput"));
+    private SelectComponent stateSelectComponent = new SelectComponent($("#state input"));
+    private SelectComponent citySelectComponent = new SelectComponent($("#city input"));
+
+
 
     private final static String TITLE_TEXT = "Student Registration Form";
 
