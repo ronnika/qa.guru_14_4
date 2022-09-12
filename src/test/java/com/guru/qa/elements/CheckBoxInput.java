@@ -4,7 +4,6 @@ import com.codeborne.selenide.SelenideElement;
 import io.qameta.allure.Step;
 
 import static com.codeborne.selenide.Selectors.byText;
-import static com.codeborne.selenide.Selenide.$;
 
 public class CheckBoxInput {
     private final String name;
@@ -20,9 +19,5 @@ public class CheckBoxInput {
         for (String hobby: hobbies){
             selector.$(byText(hobby)).click();
         }
-    }
-
-    public String getName() {
-        return name;
     }
 }

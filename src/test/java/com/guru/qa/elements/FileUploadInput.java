@@ -16,8 +16,4 @@ public class FileUploadInput {
     public void uploadImage(String imagePath) {
         selector.uploadFromClasspath(imagePath);
     }
-
-    public String getName() {
-        return name;
-    }
 }

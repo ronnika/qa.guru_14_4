@@ -16,8 +16,4 @@ public class TextInput {
     public void setValue(String val) {
         selector.setValue(val);
     }
-
-    public String getName() {
-        return name;
-    }
 }

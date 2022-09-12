@@ -19,8 +19,4 @@ public class RadioButton {
     public void setValue(String val) {
         $(byText(val)).click();
     }
-
-    public String getName() {
-        return name;
-    }
 }

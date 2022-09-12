@@ -1,16 +1,18 @@
 package com.guru.qa.pages.components;
 
 import com.codeborne.selenide.SelenideElement;
+import io.qameta.allure.Step;
 
 public class SelectComponent {
-    private SelenideElement elementInput;
+    private SelenideElement selector;
 
-    public SelectComponent(SelenideElement elementInput) {
-        this.elementInput = elementInput;
+    public SelectComponent(String name, SelenideElement selector) {
+        this.selector = selector;
     }
 
+    @Step("Input {value} to {this.name}")
     public SelectComponent setValue(String value) {
-        elementInput.setValue(value).pressEnter();
+        selector.setValue(value).pressEnter();
         return this;
     }
 }
